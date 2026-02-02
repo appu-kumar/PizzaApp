@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crazy Point</title>
+</head>
+<body>
+    <div id="root">Not rendered yet</div>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+    <script src="./src/main.js"></script>
+</body>
+</html>
+
+<!--
+# Browser Loading & React – Simple Notes (Layman Language)
+
+## 1. What is the Entry Point?
+
+* **Browser entry point:** `index.html`
+* Whenever you open a website or a local server URL, the browser first looks for **index.html**.
+* Think of it as the **main gate** of a website.
+
+---
+
+## 2. How the Browser Reads an HTML File
+
+* The browser reads HTML **top to bottom**.
+* It first understands the structure, then loads styles and scripts.
+
+### Order of reading:
+
+1. `<!DOCTYPE html>` → Tells browser this is modern HTML5
+2. `<head>` → Page information (title, meta tags)
+3. `<body>` → Actual visible content
+4. `<script>` tags → JavaScript files are loaded and executed
+
+---
+
+## 3. What Does "Loading" Mean?
+
+**Loading = Fetching + Reading + Preparing + Executing**
+
+When a page loads, the browser:
+
+1. Downloads files (HTML, JS, CSS)
+2. Stores them temporarily in **memory (RAM)**
+3. Runs JavaScript
+4. Shows the final UI on screen
+
+> Loading does NOT mean only showing — it includes downloading and running code.
+
+---
+
+## 4. What is `div id="root"`?
+
+```html
+<div id="root">Not rendered yet</div>
+```
+
+* This is an **empty container** for React.
+* Initially shows plain text.
+* React replaces this content when JavaScript runs.
+
+> `#root` is the place where React paints the UI.
+
+---
+
+## 5. What Happens When CDN Loads?
+
+Example:
+
+```html
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+```
+
+### CDN loading means:
+
+* Browser downloads React **from the internet**
+* Library is stored in **browser memory (RAM)**
+* Available only while the page is open
+
+❌ Not installed on your computer
+❌ Not saved in your project folder
+
+✅ Temporarily usable by JavaScript
+
+---
+
+## 6. React + ReactDOM Loading Flow
+
+1. React CDN loads → `React` becomes available
+2. ReactDOM CDN loads → `ReactDOM` becomes available
+3. `main.js` runs → React renders UI inside `#root`
+
+> React = brain
+> ReactDOM = hands (puts content on screen)
+
+---
+
+## 7. What is the Real Entry Point of a React App?
+
+* **HTML entry point:** `index.html`
+* **React app entry point:** `main.js`
+
+`main.js` tells React:
+
+* Where to render (`#root`)
+* What to render (components)
+
+---
+
+## 8. What If File Name Is NOT index.html?
+
+* Website will **NOT open automatically**
+* You must type the file name manually
+
+Example:
+
+* `index.html` → auto loads
+* `home.html` → must open `/home.html`
+
+> `index.html` is not mandatory, but it is the DEFAULT.
+
+---
+
+## 9. Live Server Flow (VS Code)
+
+1. Click **Go Live**
+2. Local server starts (`localhost`)
+3. Browser requests `/`
+4. Server sends `index.html`
+5. Browser loads scripts and renders React UI
+
+---
+
+## 10. Easy One-Line Summary
+
+* **index.html** → browser entry point
+* **main.js** → React app entry point
+* **CDN load** → temporary library download into browser memory
+* **Loading** → download + execute + display
+
+---
+
+## Interview-Friendly Definition
+
+> Loading is the process where the browser fetches required files, executes them, and prepares the page for display.
+
+
+-->
