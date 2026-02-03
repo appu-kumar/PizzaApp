@@ -1,21 +1,32 @@
 // React components return objects, ReactDOM turns them into real HTML.
 
-
 const pizzaPoint = (props) => {
-    return React.createElement('div', {}, React.createElement('h1',{},props.name), React.createElement('p',{}, props.description));
-}
+  return React.createElement(
+    "div",
+    {},
+    React.createElement("h1", {}, props.name),
+    React.createElement("p", {}, props.description),
+  );
+};
 const App = () => {
-  return React.createElement('div', null, React.createElement('h1', null, 'Welcome to My App'),
-  React.createElement(pizzaPoint, {
-    name: 'Pizza Point 1',
-    description: 'The best pizza in town'
-  }),React.createElement(pizzaPoint, {
-    name: 'Pizza Point 2',
-    description: 'The second best pizza in town'
-  }),React.createElement(pizzaPoint, {
-    name: 'Pizza Point 3',
-    description: 'The third best pizza in town'
-  }));
+  return React.createElement(
+    "div",
+    null,
+    React.createElement("h1", null, "Welcome to My App"),
+    React.createElement(pizzaPoint, {
+      name: "Pizza Point 1",
+
+      description: "The best pizza in town",
+    }),
+    React.createElement(pizzaPoint, {
+      name: "Pizza Point 2",
+      description: "The second best pizza in town",
+    }),
+    React.createElement(pizzaPoint, {
+      name: "Pizza Point 3",
+      description: "The third best pizza in town",
+    }),
+  );
   // This creates a plain JavaScript object, NOT HTML.
   /*
    {
@@ -25,14 +36,13 @@ const App = () => {
      }
    }
   */
-}
+};
 
 // 1 App() is called → returns a React element (object)
 const pTag = App();
 
 // 2️ Get the real DOM container
-const container = document.getElementById('root');
-
+const container = document.getElementById("root");
 
 // 3️ Create a React root (React 18 way)
 /*
@@ -47,13 +57,10 @@ Marks this container as React-managed
 */
 const root = ReactDOM.createRoot(container);
 
-
 // 4️ Render the React element into real DOM
 root.render(pTag);
 // This line converts the React element object into a real DOM (HTML element)
 // and inserts it inside the container
-
-
 
 // Note: React --> Helps in creating components and ReactDOM --> Helps in rendering those components to the DOM
 
