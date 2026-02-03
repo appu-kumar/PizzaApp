@@ -1,5 +1,6 @@
 // React components return objects, ReactDOM turns them into real HTML.
-
+import React from "react";
+import ReactDOM from "react-dom/client";
 const pizzaPoint = (props) => {
   return React.createElement(
     "div",
