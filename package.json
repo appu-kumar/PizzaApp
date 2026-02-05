@@ -11,7 +11,7 @@
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type":"module",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/appu-kumar/ReactJsBrian.git"
@@ -27,6 +27,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.1",
     "globals": "^15.9.0",
     "prettier": "^3.8.1",
     "vite": "^7.3.1"

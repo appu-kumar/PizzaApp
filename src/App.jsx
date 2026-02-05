@@ -1,26 +1,35 @@
 // React components return objects, ReactDOM turns them into real HTML.
-import React from "react";
+// import React from "react";
 import ReactDOM from "react-dom/client";
-import { pizzaPoint } from "./PizzaPoint";
+import { PizzaPoint } from "./PizzaPoint";
 const App = () => {
-  return React.createElement(
-    "div",
-    null,
-    React.createElement("h1", null, "Welcome to My App"),
-    React.createElement(pizzaPoint, {
-      name: "Pizza Point 1",
+  // return React.createElement(
+  //   "div",
+  //   null,
+  //   React.createElement("h1", null, "Welcome to My App"),
+  //   React.createElement(PizzaPoint, {
+  //     name: "Pizza Point 1",
 
-      description: "The best pizza in town",
-    }),
-    React.createElement(pizzaPoint, {
-      name: "Pizza Point 2",
-      description: "The second best pizza in town",
-    }),
-    React.createElement(pizzaPoint, {
-      name: "Pizza Point 3",
-      description: "The third best pizza in town",
-    }),
-  );
+  //     description: "The best pizza in town",
+  //   }),
+  //   React.createElement(PizzaPoint, {
+  //     name: "Pizza Point 2",
+  //     description: "The second best pizza in town",
+  //   }),
+  //   React.createElement(PizzaPoint, {
+  //     name: "Pizza Point 3",
+  //     description: "The third best pizza in town",
+  //   }),
+  // );
+
+  return (
+     <div>
+      <h1>Welcome to My App</h1>
+      <PizzaPoint name="Pizza point 1" description="The best pizza in town" />
+      <PizzaPoint name="Pizza point 2" description="The second best pizza in town" />
+      <PizzaPoint name="Pizza point 3" description="The third best pizza in town" />
+     </div>
+  )
   // This creates a plain JavaScript object, NOT HTML.
   /*
    {
@@ -33,7 +42,9 @@ const App = () => {
 };
 
 // 1 App() is called → returns a React element (object)
-const pTag = App();
+// now App() is returning jsx okay     
+// App() is a normal function call, while <App /> creates a React element that React manages internally.
+// const pTag = App();
 
 // 2️ Get the real DOM container
 const container = document.getElementById("root");
@@ -52,7 +63,8 @@ Marks this container as React-managed
 const root = ReactDOM.createRoot(container);
 
 // 4️ Render the React element into real DOM
-root.render(pTag);
+// root.render(pTag);
+root.render(<App />);
 // This line converts the React element object into a real DOM (HTML element)
 // and inserts it inside the container
 
@@ -77,12 +89,4 @@ Ans. The primary purpose of ReactDOM.createRoot() is to create a root container 
 
 */
 
-function initiateDbConnection(url, password) {
-  return function () {
-    console.log(
-      "Connecting to database at " + url + " with password " + password,
-    );
-  };
-}
 
-export const dbConnection = initiateDbConnection("myurl", "mypassword");
