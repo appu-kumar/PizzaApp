@@ -1,14 +1,7 @@
 // React components return objects, ReactDOM turns them into real HTML.
 import React from "react";
 import ReactDOM from "react-dom/client";
-const pizzaPoint = (props) => {
-  return React.createElement(
-    "div",
-    {},
-    React.createElement("h1", {}, props.name),
-    React.createElement("p", {}, props.description),
-  );
-};
+import { pizzaPoint } from "./PizzaPoint";
 const App = () => {
   return React.createElement(
     "div",
@@ -83,3 +76,13 @@ Q4. What is the primary purpose of ReactDOM.createRoot()?
 Ans. The primary purpose of ReactDOM.createRoot() is to create a root container that manages the rendering of React components into a specified DOM node, enabling React's internal systems to handle updates and rendering efficiently.
 
 */
+
+function initiateDbConnection(url, password) {
+  return function () {
+    console.log(
+      "Connecting to database at " + url + " with password " + password,
+    );
+  };
+}
+
+export const dbConnection = initiateDbConnection("myurl", "mypassword");

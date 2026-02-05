@@ -48,3 +48,10 @@
 
 - <script type="module" src="./src/main.js"></script>
 - We use type="module" so the browser understands that this JavaScript file uses modern JavaScript features like import and export.
+- remove cdn links of react and react-dom
+- npm install react@18.3.1 react-dom@18.3.1
+- Add following command in package.json
+  - "dev": "vite",
+  - "build": "vite build",
+  - "preview": "vite preview",
+- Now run react project use---> npm run dev
