@@ -123,3 +123,19 @@ Browser
 
 - Q10. Why does React recommend explicit event handlers on form elements?
   Ans. To improve accessibility of screen readers.
+
+- Q11. What is the primary purpose of the useEffect hook in React?
+  Ans. To handle the side effects outside the render cycle.
+
+- Q12. What does the second parameter in useEffect represent?
+  Ans. The dependecy array triggers the effect.
+
+- Q13. What happens when an empty array [] is passed as the second argument to useEffect?
+  Ans. The effect runs only once when component mounts.
+
+- Q14. Why can't an async function be directly used as a useEffect callback?
+  Ans. useEffect callback must return either nothing or a cleanup function, but an async function always returns a Promise.
+  React cannot use a Promise as a cleanup function, so an async function cannot be passed directly.
+
+- Q15. What does the map() method do in the context of rendering React components?
+  Ans. map() iterates over an array and returns a new array of JSX elements, allowing React to render lists dynamically.

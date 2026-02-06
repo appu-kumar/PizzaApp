@@ -13,6 +13,8 @@ const pizzaPoint = (props) => {
 
 // Below one is jsx,  browser does not understand this,  so babel transpile below code into the above code
 export const PizzaPoint = (props) => {
+
+    console.log("Rendering PizzaPoint", props.name);
     return (
         <div>
             <h1>{props.name}</h1>

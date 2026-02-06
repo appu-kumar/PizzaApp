@@ -1,9 +1,25 @@
 import {PizzaPoint} from "./PizzaPoint";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 export default function Order() {
+  const [pizzaTypes, setPizzaTypes] = useState([]);
   const [pizzaType, setPizzaType] = useState("pepperoni");
   const [pizzaSize, setPizzaSize] = useState("M");
+  const [isLoading, setIsLoading] = useState(true);
+
+  async function fetchPizzaTypes() {
+        const res = await fetch("/api/pizzas");
+        const data = await res.json();
+        setPizzaTypes(data);
+        setIsLoading(false);
+  }
+
+  
+  // If dependency array is empty, the effect will only run once after the initial render, similar to componentDidMount in class components. This is useful for fetching data or performing setup tasks that should only happen once when the component mounts.
+  useEffect(() => {
+    fetchPizzaTypes();
+  },[])
+
   return (
     <div className="order">
         <p>pizzaType = {pizzaType}</p>
@@ -14,9 +30,9 @@ export default function Order() {
           <div>
             <label htmlFor="pizza-type">Pizza Type</label>
             <select name="pizza-type" value={pizzaType} onChange={(e)=> setPizzaType(e.target.value)}>
-              <option value="pepperoni">The Pepperoni Pizza</option>
-              <option value="hawaiian">The Hawaiian Pizza</option>
-              <option value="big_meat">The Big Meat Pizza</option>
+              {pizzaTypes.map((type) => {
+                return <option key={type.id} value={type.id}>{type.name}</option>
+              })}
             </select>
           </div>
           <div>
@@ -61,7 +77,7 @@ export default function Order() {
         </div>
         <div className="order-pizza">
           <PizzaPoint
-            name="Pepperoni"
+            name={pizzaTypes.find(t => t.id === pizzaType)?.name || "Pepperoni"}
             description="Mozzarella Cheese, Pepperoni"
             image="/public/pizzas/pepperoni.webp"
           />
