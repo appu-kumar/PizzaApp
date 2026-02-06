@@ -55,3 +55,71 @@
   - "build": "vite build",
   - "preview": "vite preview",
 - Now run react project use---> npm run dev
+
+# Proxy server
+
+- In vite.config.js, the proxy server is used to forward frontend requests to the backend URL.
+- How frontend forwards requests to backend using a proxy (Vite example)
+- The frontend does not directly talk to the backend.
+  It sends the request to Vite, and Vite forwards it to the backend on behalf of the frontend.
+- Frontend → Vite Proxy → Backend
+- Backend → Vite Proxy → Frontend
+- Frontend: localhost:5173
+- Backend: localhost:3000
+- Different origins → CORS error
+
+```Browser
+↓ fetch("/api/users")
+Vite Dev Server (5173)
+↓ proxy forwards
+Backend Server (3000)
+↓ response
+Vite Dev Server
+↓
+Browser
+```
+
+# Important Notes
+
+- Proxy works only in development
+- In production, frontend calls backend directly
+- Vite proxy is not deployed
+
+# useState()
+
+- Even when a component re-renders(on state change component(function) re-runs and create new jsx and compare with old jsx only change dom element is taken care in new jsx), React still updates only the DOM nodes that changed.
+
+# Question Section
+
+- Q1. What is the purpose of having both React and ReactDOM packages?
+  Ans. React is responsible for creating components and managing their state and lifecycle, while ReactDOM is responsible for rendering those components to the actual DOM in web applications.
+
+- Q2. What method is used to render a React application to the DOM?
+  Ans. The method used to render a React application to the DOM is root.render(), where root is created using ReactDOM.createRoot().
+
+- Q3. How can you create a basic React component without using JSX?
+  Ans. A basic React component can be created without using JSX by using React.createElement() to create elements. For example:
+  const MyComponent = () => {
+  return React.createElement('div', null, 'Hello World');
+  };
+
+- Q4. What is the primary purpose of ReactDOM.createRoot()?
+  Ans. The primary purpose of ReactDOM.createRoot() is to create a root container that manages the rendering of React components into a specified DOM node, enabling React's internal systems to handle updates and rendering efficiently.
+
+- Q5. What is the primary purpose of adding a proxy configuration in the Vite configuration?
+  Ans. The primary purpose of adding a proxy configuration in the Vite configuration is to enable the development server to forward API requests to a backend server, allowing for seamless integration between the frontend and backend during development without encountering CORS issues.
+
+- Q6. What is the purpose of the useState hook in React?
+  Ans. To create stateful component and allow dynamic value updates.
+
+- Q7. What is a key rule when using React hooks?
+  Ans. Hooks must be called at the top level of a component.
+
+- Q8. What happens when a state is updated using a setter function in React?
+  Ans.The component re-renders(component function called) with new state value.
+
+- Q9. What is the typical structure of a useState hook call?
+  Ans. const [value, setValue] = useState(defaultvalue);
+
+- Q10. Why does React recommend explicit event handlers on form elements?
+  Ans. To improve accessibility of screen readers.

@@ -1,7 +1,7 @@
 // React components return objects, ReactDOM turns them into real HTML.
 // import React from "react";
 import ReactDOM from "react-dom/client";
-import { PizzaPoint } from "./PizzaPoint";
+import Order from "./Order";
 const App = () => {
   // return React.createElement(
   //   "div",
@@ -22,12 +22,13 @@ const App = () => {
   //   }),
   // );
 
+  // // Babel converts this JSX into a plain JavaScript object (React element) at build/compile time,
+// before the code runs in the browser.
+
   return (
      <div>
-      <h1>Welcome to My App</h1>
-      <PizzaPoint name="Pizza point 1" description="The best pizza in town" />
-      <PizzaPoint name="Pizza point 2" description="The second best pizza in town" />
-      <PizzaPoint name="Pizza point 3" description="The third best pizza in town" />
+      <h1>Pizza Point</h1>
+       <Order />
      </div>
   )
   // This creates a plain JavaScript object, NOT HTML.
@@ -70,23 +71,5 @@ root.render(<App />);
 
 // Note: React --> Helps in creating components and ReactDOM --> Helps in rendering those components to the DOM
 
-// QNA section
-/*
-Q1. What is the purpose of having both React and ReactDOM packages?
-Ans. React is responsible for creating components and managing their state and lifecycle, while ReactDOM is responsible for rendering those components to the actual DOM in web applications.
-
-Q2. What method is used to render a React application to the DOM?
-Ans. The method used to render a React application to the DOM is root.render(), where root is created using ReactDOM.createRoot().
-
-Q3. How can you create a basic React component without using JSX?
-Ans. A basic React component can be created without using JSX by using React.createElement() to create elements. For example:
-const MyComponent = () => {
-  return React.createElement('div', null, 'Hello World');
-};
-
-Q4. What is the primary purpose of ReactDOM.createRoot()?
-Ans. The primary purpose of ReactDOM.createRoot() is to create a root container that manages the rendering of React components into a specified DOM node, enabling React's internal systems to handle updates and rendering efficiently.
-
-*/
 
 
