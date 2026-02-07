@@ -139,3 +139,42 @@ Browser
 
 - Q15. What does the map() method do in the context of rendering React components?
   Ans. map() iterates over an array and returns a new array of JSX elements, allowing React to render lists dynamically.
+
+- Q16. What does a ternary expression in React allow developers to do?
+  Ans. A ternary expression lets you choose between two UI outputs based on a condition, directly inside JSX.
+
+- Q17. What does a ternary expression in React allow developers to do?
+  Ans. The effect runs on every render.
+
+- Q18. When should state variables be added to a useEffect dependency array?
+  Ans. Any state (or prop) that is read inside useEffect and affects its logic or output must be included in the dependency array.
+
+- Q19. What is the key difference between an expression and a statement in JavaScript?
+  Ans. An expression evaluates to a value(ternary operator), whereas a statement(if and while loop) performs an action or controls program flow and does not return a value.
+
+- Q20. What is the primary purpose of the 'key' prop in React when rendering lists of components?
+  Ans. The key prop allows React to track which list items have changed, been added, or removed, enabling efficient DOM reconciliation.
+
+- Q21. Why is using the array index as a key considered problematic?
+  Ans. Because array index is not associated with listing objects. Array indexes are unstable keys; when list order changes, React may reuse the wrong component instances, leading to bugs and poor performance.
+
+- Q22. What does React do when components are rearranged without a unique key?
+  Ans. When React components are rearranged without a unique key, React’s reconciliation (diffing) algorithm cannot correctly identify which item is which. As a result, React may reuse the wrong components, leading to unexpected UI bugs.
+
+- Q23. In which scenario might using the array index as a key be acceptable?
+  Ans. When list is static and won't be reordered.
+
+- Q24. What is an ideal identifier for a 'key' prop when rendering lists?
+  Ans. A Unique Id associated with object.
+
+- Q25. What does NODE_ENV typically indicate in web development?
+  Ans. Whether the app is in production or development mode.
+
+- Q26. What is the primary purpose of React's Strict Mode?
+  Ans. To provide extra(One more times it checks the <StrictMode><App /></StrictMode>) check and warn about the deprecated features.
+
+- Q27. What happens when React components are rendered in Strict Mode?
+  Ans. Components are double re-renders to catch potential side effect issue.
+
+- Q28. What is a general recommendation for performance optimization in React?
+  Ans. Introduce performance enhancements only when specific problem arise.

@@ -13,13 +13,12 @@ const pizzaPoint = (props) => {
 
 // Below one is jsx,  browser does not understand this,  so babel transpile below code into the above code
 export const PizzaPoint = (props) => {
-
-    console.log("Rendering PizzaPoint", props.name);
     return (
         <div>
             <h1>{props.name}</h1>
             <p>{props.description}</p>
             <img src={props.image} alt={props.name} style={{ width: "60%", height: "60%" }} />
+            <p>${props.prize}</p>
         </div>
     )
 }
