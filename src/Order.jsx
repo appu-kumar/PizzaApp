@@ -1,10 +1,11 @@
 import {PizzaPoint} from "./PizzaPoint";
 import {useState, useEffect} from "react";
-
+import Cart from "./Cart";
 export default function Order() {
   const [pizzaTypes, setPizzaTypes] = useState([]);
   const [pizzaType, setPizzaType] = useState("pepperoni");
   const [pizzaSize, setPizzaSize] = useState("M");
+  const [cart, setCart] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   let selectedPizza;
   let prize;
@@ -12,15 +13,25 @@ export default function Order() {
 
   if(!isLoading) {
      selectedPizza = pizzaTypes.find(t => t.id === pizzaType);
-     console.log("selectedPizza", selectedPizza.sizes);
      prize = selectedPizza.sizes[pizzaSize];
   }
   async function fetchPizzaTypes() {
         const res = await fetch("/api/pizzas");
         const data = await res.json();
-        console.log(data)
         setPizzaTypes(data);
         setIsLoading(false);
+  }
+  async function checkout () {
+      await fetch("/api/order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({cart})
+      })
+     
+     setCart([]);
+     setIsLoading(false); 
   }
   // If dependency array is empty, the effect will only run once after the initial render, similar to componentDidMount in class components. This is useful for fetching data or performing setup tasks that should only happen once when the component mounts.
   useEffect(() => {
@@ -28,11 +39,13 @@ export default function Order() {
   },[])
 
   return (
+    <div className="order-page">
     <div className="order">
-        <p>pizzaType = {pizzaType}</p>
-        <p>pizzaSize = {pizzaSize}</p>
       <h2>Create Order</h2>
-      <form onSubmit={(e)=> e.preventDefault()}>
+      <form onSubmit={(e)=> {
+        e.preventDefault()
+        setCart([...cart, { pizza:selectedPizza, size:pizzaSize, prize }]);
+        }}>
         <div>
           <div>
             <label htmlFor="pizza-type">Pizza Type</label>
@@ -93,6 +106,11 @@ export default function Order() {
           }  
         </div>
       </form>
+      
+    </div>
+      {
+        isLoading ? <p>Loading...</p> : <Cart cart={cart} checkout={checkout} />
+      }
     </div>
   );
 }

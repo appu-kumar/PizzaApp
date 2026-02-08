@@ -89,6 +89,15 @@ Browser
 
 - Even when a component re-renders(on state change component(function) re-runs and create new jsx and compare with old jsx only change dom element is taken care in new jsx), React still updates only the DOM nodes that changed.
 
+- Official Rule of Hooks (Interview Gold ⭐)
+- ✅ Call hooks only at the top level
+- ❌ Don’t call hooks inside:
+- loops
+- conditions
+- nested functions
+- ✅ Call hooks only from React components or custom hooks
+- React.js identify the hooks by position not name okay,if we write the hooks conditionally then in second/third... render may forget the position and cause the issue “This is the 1st hook, this is the 2nd hook, this is the 3rd hook…”
+
 # Question Section
 
 - Q1. What is the purpose of having both React and ReactDOM packages?
@@ -178,3 +187,28 @@ Browser
 
 - Q28. What is a general recommendation for performance optimization in React?
   Ans. Introduce performance enhancements only when specific problem arise.
+
+- Q29. What happens during the first render when using a custom hook with an asynchronous API call?
+  Ans. During the first render, the custom hook runs synchronously, initializes state with its default value, renders the component with that value, and then the asynchronous API call runs after render. When the data arrives, state updates and React triggers a re-render.
+
+- Q30. When should effects be extracted into custom hooks?(Represents a Single Responsibility)
+  Ans. Effects should be extracted into custom hooks when the same side-effect logic is reused across components, or when extracting it improves readability, separation of concerns, and testability.
+- Q31. What method is used to prevent a form from automatically submitting in React?
+  Ans. preventDefault()
+- Q32. What JavaScript operator is used to add a new item to an existing array while creating a new array?
+  Ans. spread operator {...}
+- Q33. Why is onSubmit preferred over onClick for form handling?
+  Ans. onSubmit is preferred over onClick for form handling because it correctly handles all ways a form can be submitted, supports browser validation and accessibility, and represents the semantic intent of submitting a form.
+  - onSubmit catches all of these
+  - onClick catches only button clicks
+
+# Custom hook
+
+- A custom hook is a reusable function that encapsulates React hook logic.
+  It helps in code reuse, separation of concerns, and cleaner components.
+  State inside a custom hook belongs to the component using it, so when it changes, the component re-renders.
+  Basically separating the stateful logic in another function that is it.
+
+# Design Patterns.
+
+- Extract Effects(Custom hooks) When They Represent a Single Responsibility

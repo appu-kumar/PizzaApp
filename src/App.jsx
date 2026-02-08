@@ -2,6 +2,7 @@
 // import React from "react";
 import ReactDOM from "react-dom/client";
 import Order from "./Order";
+import PizzaOfTheDay from "./PizzaOfTheDay";
 const App = () => {
   // return React.createElement(
   //   "div",
@@ -27,8 +28,9 @@ const App = () => {
 
   return (
      <div>
-      <h1>Pizza Point</h1>
+      <h1 className="logo"></h1>
        <Order />
+       <PizzaOfTheDay />
      </div>
   )
   // This creates a plain JavaScript object, NOT HTML.
