@@ -1,8 +1,13 @@
 // React components return objects, ReactDOM turns them into real HTML.
 // import React from "react";
 import ReactDOM from "react-dom/client";
+import {useState} from "react";
 import Order from "./Order";
 import PizzaOfTheDay from "./PizzaOfTheDay";
+import Header from "./Header";
+import {cartContext} from "./contexts";
+
+
 const App = () => {
   // return React.createElement(
   //   "div",
@@ -26,11 +31,14 @@ const App = () => {
   // // Babel converts this JSX into a plain JavaScript object (React element) at build/compile time,
 // before the code runs in the browser.
 
+  const cartHook = useState([]);
   return (
      <div>
-      <h1 className="logo"></h1>
-       <Order />
-       <PizzaOfTheDay />
+       <cartContext.Provider value={cartHook}>
+        <Header />
+        <Order />
+        <PizzaOfTheDay />
+       </cartContext.Provider>
      </div>
   )
   // This creates a plain JavaScript object, NOT HTML.

@@ -202,6 +202,9 @@ Browser
   - onSubmit catches all of these
   - onClick catches only button clicks
 
+- Q34. What problem does React Context solve in component communication?
+  Ans. Props drilling across multiple nested components.
+
 # Custom hook
 
 - A custom hook is a reusable function that encapsulates React hook logic.
@@ -212,3 +215,25 @@ Browser
 # Design Patterns.
 
 - Extract Effects(Custom hooks) When They Represent a Single Responsibility
+
+# useContext
+
+- Create context eg. export const cartContext = createContext();
+- const cartHook = useState([]);
+- Wrap the required set of components or <App /> like <cartContext.provider value = {cartHook}> </cartContext.provider>
+- Now time to use with the help of the const [cart, setCart] = useContext(cartContext); in children components.
+-
+
+`createContext()
+     ↓
+Provider created (Wrap root component means <App /> or any )
+     ↓
+State stored in Provider
+     ↓
+value passed down
+     ↓
+useContext reads value
+     ↓
+setState updates value
+     ↓
+Consumers re-render`
