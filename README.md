@@ -105,8 +105,22 @@ Browser
 - Q3. How can you create a basic React component without using JSX?
   Ans. A basic React component can be created without using JSX by using React.createElement() to create elements. For example:
   const MyComponent = () => {
-  return React.createElement('div', null, 'Hello World');
+  return React.createElement('div',{class="r", id="uid" }, 'Hello World');
+  // return (<div >Hello world </div>)
   };
+  - 4️⃣ JSX → JS object → DOM (the full pipeline)
+  - ````JSX
+      ↓ (Babel)
+      React.createElement()
+      ↓
+      React Element (plain JS object)
+      ↓
+      Virtual DOM (tree of objects)
+      ↓
+      ReactDOM
+      ↓
+      Real DOM```
+    ````
 
 - Q4. What is the primary purpose of ReactDOM.createRoot()?
   Ans. The primary purpose of ReactDOM.createRoot() is to create a root container that manages the rendering of React components into a specified DOM node, enabling React's internal systems to handle updates and rendering efficiently.
@@ -216,6 +230,18 @@ Browser
 - Q39. How does TanStack Router handle versioning across its ecosystem?
   Ans. Synchronize versions across all packages.
 
+- Q40. What function is used to create a lazy-loaded route in TanStack Router?
+  Ans. createLazyFileRoute.
+
+- Q41. What component should be used for client-side routing instead of standard anchor tags?
+  Ans. Link
+
+- Q42. What is the primary advantage of lazy loading routes?
+  Ans. Reduce initial page load time.
+
+- Q43. What file extension is used for lazy-loaded route files?
+  Ans. AnyFile.lazy.jsx
+
 # Custom hook
 
 - A custom hook is a reusable function that encapsulates React hook logic.
@@ -235,7 +261,7 @@ Browser
 - Now time to use with the help of the const [cart, setCart] = useContext(cartContext); in children components.
 -
 
-`createContext()
+````createContext()
      ↓
 Provider created (Wrap root component means <App /> or any )
      ↓
@@ -247,7 +273,7 @@ useContext reads value
      ↓
 setState updates value
      ↓
-Consumers re-render`
+Consumers re-render```
 
 # Tanstack query
 
@@ -259,3 +285,4 @@ Consumers re-render`
   - created two lazy routes you can see in the routes folder.
   - App.jsx always talk to routeTree.gen.ts for th routes
   - routes given to react.js in the App.jsx.
+````
