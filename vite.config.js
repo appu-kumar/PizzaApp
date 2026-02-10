@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 export default defineConfig({
   server: {
@@ -14,5 +15,15 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react()],
+  plugins: [TanStackRouterVite(), react()],
 });
+
+/*
+✅ With TanStackRouterVite()
+It:
+Scans your route files
+Auto-generates route config
+Keeps type-safety updated
+Hot-reloads routes on save
+
+*/

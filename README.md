@@ -205,6 +205,21 @@ Browser
 - Q34. What problem does React Context solve in component communication?
   Ans. Props drilling across multiple nested components.
 
+- Q35. What is the primary focus of TanStack Router?
+  Ans. Client Side routing.
+
+- Q36. What does the <Outlet/> component do in TanStack Router?
+  Ans. Renders the matched route's component in a parent layout.
+
+- Q37. What naming convention is used for lazy-loaded routes in TanStack Router?
+  Ans. Use lowercase filename with 'lazy.jsx' eg. cart.lazy.jsx
+
+- Q38. What is the purpose of the \_root.jsx file in TanStack Router?
+  Ans. Define shared layout and components for all routes.
+
+- Q39. How does TanStack Router handle versioning across its ecosystem?
+  Ans. Synchronize versions across all packages.
+
 # Custom hook
 
 - A custom hook is a reusable function that encapsulates React hook logic.
@@ -237,3 +252,14 @@ useContext reads value
 setState updates value
      ↓
 Consumers re-render`
+
+# Tanstack query
+
+- It is like receptionist
+- npm install -D @tanstack/router-plugin@1.65.0 @tanstack/router-devtools@1.65.0
+
+- Route structure.
+  - created root route in the \_\_root.jsx
+  - created two lazy routes you can see in the routes folder.
+  - App.jsx always talk to routeTree.gen.ts for th routes
+  - routes given to react.js in the App.jsx.
