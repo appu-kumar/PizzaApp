@@ -285,4 +285,5 @@ Consumers re-render```
   - created two lazy routes you can see in the routes folder.
   - App.jsx always talk to routeTree.gen.ts for th routes
   - routes given to react.js in the App.jsx.
+
 ````
