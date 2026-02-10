@@ -29,7 +29,7 @@
 - ❌ hello function is never used
 - ❌ console.log is not allowed
 
-# A .gitignore file is added at the root level to exclude unnecessary and generated files from being committed to GitHub.
+- A .gitignore file is added at the root level to exclude unnecessary and generated files from being committed to GitHub.
 
 # Vite: Vite is a fast tool that helps developers run and build React apps quickly.
 
@@ -38,14 +38,10 @@
 - ✅ Starts the project instantly
 - ✅ Shows changes immediately
 - ✅ Saves developer time
-
-# eg. Like vite
-
+- eg. Like vite
 - Webpack
 - Parcel
-
-# Add type = module.
-
+- Add type = module.
 - <script type="module" src="./src/main.js"></script>
 - We use type="module" so the browser understands that this JavaScript file uses modern JavaScript features like import and export.
 - remove cdn links of react and react-dom
