@@ -4,7 +4,7 @@
 
 - npm is the package manager for Node.js that allows installation of packages from the npm registry, manages project dependencies, and enables commands like npm run and npm install
 
-# Install Prettier as a dev dependency using npm install --save-dev prettier so formatting is consistent across the entire project. This ensures all developers follow the same formatting rules, whereas the VS Code Prettier extension only applies locally on your machine.
+- Install Prettier as a dev dependency using npm install --save-dev prettier so formatting is consistent across the entire project. This ensures all developers follow the same formatting rules, whereas the VS Code Prettier extension only applies locally on your machine.
 
 - npm install --save-dev prettier
 - .prettierrc file is to define the prettier rules.
