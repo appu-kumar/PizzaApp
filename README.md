@@ -242,6 +242,18 @@ Browser
 - Q43. What file extension is used for lazy-loaded route files?
   Ans. AnyFile.lazy.jsx
 
+- Q44. What is the primary advantage of using Tanstack Query for API requests?
+  Ans. It simplifies the api requests.
+
+- Q45. Which libraries does Tanstack Query support?
+  Ans. React, Angular and Vue.
+
+- Q46. What is a key benefit of using Tanstack Query's caching mechanism?
+  Ans. It eliminates the need of the custom cache logic.
+
+- Q47. What does Tanstack Query help developers avoid when making API requests?
+  Ans. TanStack Query helps developers avoid writing repetitive, messy, and manual API handling code.
+
 # Custom hook
 
 - A custom hook is a reusable function that encapsulates React hook logic.
@@ -259,23 +271,23 @@ Browser
 - const cartHook = useState([]);
 - Wrap the required set of components or <App /> like <cartContext.provider value = {cartHook}> </cartContext.provider>
 - Now time to use with the help of the const [cart, setCart] = useContext(cartContext); in children components.
--
 
-````createContext()
-     ↓
-Provider created (Wrap root component means <App /> or any )
-     ↓
-State stored in Provider
-     ↓
-value passed down
-     ↓
-useContext reads value
-     ↓
-setState updates value
-     ↓
-Consumers re-render```
+```createContext()
+  ↓
+  Provider created (Wrap root component means <App /> or any )
+  ↓
+  State stored in Provider
+  ↓
+  value passed down
+  ↓
+  useContext reads value
+  ↓
+  setState updates value
+  ↓
+  Consumers re-render
+```
 
-# Tanstack query
+# Tanstack Router
 
 - It is like receptionist
 - npm install -D @tanstack/router-plugin@1.65.0 @tanstack/router-devtools@1.65.0
@@ -286,4 +298,17 @@ Consumers re-render```
   - App.jsx always talk to routeTree.gen.ts for th routes
   - routes given to react.js in the App.jsx.
 
-````
+# Tanstack query
+
+- npm i @tanstack/react-query@5.59.13
+- npm i -D @tanstack/react-query-devtools@5.59.13 @tanstack/eslint-plugin-query@5.59.7
+- What can developers configure with QueryClient in Tanstack Query?
+- 1️⃣ Default Query Behavior (Most Important)
+  - You can control:
+  ````
+   How long data stays fresh
+   When to refetch
+   How many retries
+   Cache time
+   Refetch on window focus```
+  ````
