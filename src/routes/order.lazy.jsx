@@ -29,7 +29,7 @@ export const Route = createLazyFileRoute('/order')({
         setPizzaTypes(data);
         setIsLoading(false);
   }
-  async function checkout () {
+  async function placeOrder () {
       await fetch("/api/order", {
         method: "POST",
         headers: {
@@ -117,7 +117,7 @@ export const Route = createLazyFileRoute('/order')({
       
     </div>
       {
-        isLoading ? <p>Loading...</p> : <Cart cart={cart} checkout={checkout} />
+        isLoading ? <p>Loading...</p> : <Cart cart={cart} placeOrder={placeOrder}/>
       }
     </div>
   );

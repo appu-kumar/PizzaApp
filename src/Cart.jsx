@@ -1,13 +1,20 @@
+import { useState, useMemo, useCallback} from "react";
+import Modal from "./Modal"
+export default function Cart({cart, placeOrder}) {
+    const [openModal, setOpenModal] = useState(false);
 
-export default function Cart({cart, checkout}) {
-     let totalPrize = 0;
+     const totalPrize = useMemo(() => {
+  return cart.reduce((sum, item) => sum + item.prize, 0);
+}, [cart]);
 
-     cart.forEach(item => {
-        totalPrize += item.prize;
-     })
 
+ const placeOrderHelper = useCallback(async () => {
+  await placeOrder();
+  setOpenModal(false);
+}, [placeOrder]);
 
     return (
+        <>
         <div className="cart">
             <h2>Cart</h2>
             <ul>
@@ -20,7 +27,42 @@ export default function Cart({cart, checkout}) {
             ))}
             </ul>
             <h3>Total: ${totalPrize}</h3>  
-            <button onClick={checkout}>Checkout</button> 
+            
+        <button
+          onClick={() => setOpenModal(true)}
+          disabled={cart.length === 0}
+        >
+          Place Order
+        </button>
         </div>
+         {openModal && (
+        <Modal>
+          <div className="confirm-modal">
+            <h3>Confirm Your Order</h3>
+
+            <ul>
+              {cart.map((item, index) => (
+                <li key={index}>
+                  <strong>{item.pizza?.name}</strong> - {item.size} - ${item.prize}
+                </li>
+              ))}
+            </ul>
+
+            <hr />
+            <h4>Total: ${totalPrize}</h4>
+
+            <div style={{ marginTop: "20px" }}>
+              <button onClick={placeOrderHelper}>
+                Confirm Order
+              </button>
+
+              <button onClick={() => setOpenModal(false)}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </Modal>
+      )}
+        </>
     )
 }
