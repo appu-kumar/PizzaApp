@@ -305,10 +305,44 @@ Browser
 - What can developers configure with QueryClient in Tanstack Query?
 - 1️⃣ Default Query Behavior (Most Important)
   - You can control:
-  ````
+  ```
    How long data stays fresh
    When to refetch
    How many retries
    Cache time
-   Refetch on window focus```
-  ````
+   Refetch on window focus
+  ```
+- What hook is imported from @tanstack/react-query for managing data fetching?
+- useQuery()
+- What is the purpose of the queryKey in the useQuery hook?
+- To store and identify the cached data.
+- What is the purpose of the staleTime option in useQuery?
+- Determine how long cached data remains fresh.
+
+# Portal in React.js
+
+- import {createPortal} from "react-dom";
+- Q. What is the primary purpose of React Portals?
+- A. To render a component outside its parent’s DOM hierarchy while keeping it inside the React component tree.
+  - 🚀 Real-World Use Cases
+  - Portals are mainly used for:
+  - Modals
+  - Dialogs
+  - Tooltips
+  - Dropdowns
+  - Side drawers
+  - Toast notifications
+  - Most UI libraries use it internally:
+  - Material UI → Dialog
+  - Ant Design → Modal
+  - Chakra UI → Drawer
+
+- Q. What React hook is used to create a reference that persists between renders?
+  A. useRef:
+  Stores a mutable value
+  Persists across re-renders
+  Does NOT cause a re-render when updated
+
+# important links
+
+- https://react.dev/reference/rules/rules-of-hooks
