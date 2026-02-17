@@ -1,7 +1,9 @@
 import { useState, useMemo, useCallback} from "react";
 import Modal from "./Modal"
+import Toast from "./Toast"
 export default function Cart({cart, placeOrder}) {
     const [openModal, setOpenModal] = useState(false);
+    const [showToast, setShowToast] = useState(false);
 
      const totalPrize = useMemo(() => {
   return cart.reduce((sum, item) => sum + item.prize, 0);
@@ -11,6 +13,11 @@ export default function Cart({cart, placeOrder}) {
  const placeOrderHelper = useCallback(async () => {
   await placeOrder();
   setOpenModal(false);
+  setShowToast(true);
+
+  setTimeout(()=> {
+    setShowToast(false);
+  },3000)
 }, [placeOrder]);
 
     return (
@@ -63,6 +70,8 @@ export default function Cart({cart, placeOrder}) {
           </div>
         </Modal>
       )}
+
+      {showToast && <Toast>Order placed successfully</Toast>}
         </>
     )
 }
